@@ -50,13 +50,13 @@ For any events like PUSH or PULL REQUEST in the branch MAIN.
 
 ### `pull_request_dev`
 
-For any push or pull request in the branch "develop" will run a echo to show a message that a test is running. Take the branch "main" as a destination and the branch that make a push or pull request.
+For any push or pull request in the branch DEVELOP will run a echo to show a message that a test is running. Take the branch MAIN as a destination and the branch that make a push or pull request.
 
 ### `pull_request_dev`
 
 Performs the same functionality as " pull_request_dev ". The only difference is that it will only trigger when a push event happens in any of the future branchs.
 
-Pull request to the develop branch.
+Pull request to the DEVELOP branch.
 
 
 

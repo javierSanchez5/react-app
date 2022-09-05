@@ -1,4 +1,5 @@
 name: Pull request to develop
+on:
   push:
     branches:
       - 'feature/*'

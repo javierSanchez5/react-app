@@ -26,6 +26,6 @@ jobs:
         pr_title: "Pull request ${{ github.ref }} into develop"
       
       if: github.ref != 'refs/heads/feature/*'
-        run: |
-          echo " ${{ github.ref }}"
+      run: |
+        echo " ${{ github.ref }}"
 

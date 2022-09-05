@@ -18,7 +18,7 @@ jobs:
           - name: Check out repository code
             uses: actions/checkout@v2
 
-          if ${{ github.ref}} == 'refs/head/feature/*'
+          if ${{ github.ref }} == 'refs/head/feature/*'
           - name: pull-request
             uses: repo-sync/pull-request@v2
             with:
@@ -27,7 +27,7 @@ jobs:
               pr_label: "feature, automated pr"
               pr_title: "Pull request ${{ github.ref }} into develop"
 
-          if ${{ github.ref}} == 'refs/head/develop'
+          if ${{ github.ref }} == 'refs/head/develop'
           - name: pull-request
             uses: repo-sync/pull-request@v2
             with:

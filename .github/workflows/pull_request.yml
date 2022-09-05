@@ -7,7 +7,7 @@ on:
 
 jobs:
   create-pull-request:
-        if: ${{ github.ref }} == 'refs/heads/feature/*'
+        if: github.ref  == 'refs/heads/feature/*'
         runs-on: ubuntu-latest
         steps:
           - name: Doing Test
@@ -24,7 +24,7 @@ jobs:
               pr_label: "feature, automated pr"
               pr_title: "Pull request ${{ github.ref }} into develop"
 
-        if: ${{ github.ref }} != 'refs/heads/feature/*'
+        if: github.ref != 'refs/heads/feature/*'
         runs-on: ubuntu-latest
         steps:
           - name: Doing Test

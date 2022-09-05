@@ -3,11 +3,11 @@ on:
   push:
     branches:
       - 'feature/*'
-      #- 'develop'
+      - 'develop'
 
 jobs:
   create-pull-request:
-        if: ${{ github.ref }} == 'refs/heads/feature/*'
+        if: ${{ github.ref }} != 'refs/heads/feature/*'
         runs-on: ubuntu-latest
         steps:
           - name: Doing Test

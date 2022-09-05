@@ -8,7 +8,16 @@ on:
 jobs:
   create-pull-request:
     runs-on: ubuntu-latest
+    env:
+      BRANCH_PR: ""
     steps:
+    - name: setting branch for PR
+      run: |
+        if ${{ github.ref }} == 'refs/head/feature/*'; then
+          ${{ env.BRANCH_PR }} = 'develop'
+        else
+          {{ env.BRANCH_PR}} = 'main'
+        fi
     - name: Doing Test
       run: |
         echo "Testing ${{ github.ref }}"
@@ -18,7 +27,7 @@ jobs:
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
-        destination_branch: "develop"
+        destination_branch: ${{ env.BRANCH_PR }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
         pr_label: "feature, automated pr"
-        pr_title: "Pull request ${{ github.ref }} into develop"
+        pr_title: "Pull request ${{ github.ref }} into ${{ env.BRANCH_PR }}"

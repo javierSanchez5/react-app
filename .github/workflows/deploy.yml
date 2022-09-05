@@ -1,4 +1,4 @@
-name: Deployment CI
+name: Deployment to gh-pages
 
 on:
   push:

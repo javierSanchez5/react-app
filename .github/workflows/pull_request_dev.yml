@@ -1,8 +1,7 @@
-name: Create production promotion pull request
+name: Pull request to main
 on:
   push:
     branches:
-      - 'feature/*'
       - 'develop'
 
 jobs:
@@ -18,7 +17,7 @@ jobs:
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
-        destination_branch: "develop"
+        destination_branch: main
         github_token: ${{ secrets.GITHUB_TOKEN }}
         pr_label: "feature, automated pr"
-        pr_title: "Pull request ${{ github.ref }} into develop"
+        pr_title: "Pull request ${{ github.ref }} into main"

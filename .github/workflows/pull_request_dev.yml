@@ -2,7 +2,10 @@ name: Pull request to main
 on:
   push:
     branches:
-      - 'develop'
+      [ develop ]
+  pull_request:
+    branches: 
+      [ develop ]
 
 jobs:
   create-pull-request:

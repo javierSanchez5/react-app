@@ -25,6 +25,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Branches in this repo
 
 ### `Main`
+
 ### `gh-pages`
 
 gh-pages is used as a release branch
@@ -33,7 +34,7 @@ gh-pages is used as a release branch
 
 ### `Feature`
 
-Create a new feature with the next format " feature/<new_feature>
+For any new feature Create a new feature branch with the next format " feature/<new_feature>
 
 ## Workflows
 

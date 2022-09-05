@@ -14,20 +14,12 @@ jobs:
             run: |
               echo "Testing Feature..."
               echo "Test Succesfull"
+              echo " ${{ github.red }} "
 
           - name: Check out repository code
             uses: actions/checkout@v2
 
-            if ${{ github.ref }} == 'refs/head/feature/*'
-          - name: pull-request
-            uses: repo-sync/pull-request@v2
-            with:
-              destination_branch: "develop"
-              github_token: ${{ secrets.GITHUB_TOKEN }}
-              pr_label: "feature, automated pr"
-              pr_title: "Pull request ${{ github.ref }} into develop"
-
-            if ${{ github.ref }} == 'refs/head/develop'
+          
           - name: pull-request
             uses: repo-sync/pull-request@v2
             with:

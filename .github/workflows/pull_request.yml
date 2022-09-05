@@ -4,36 +4,34 @@ on:
     branches:
       #- gh-pages
       - 'feature/*'
-      #- 'develop'
+      - 'develop'
 
 jobs:
   create-pull-request:
-  if ${{ github.ref}} == 'refs/head/feature/*'
-      runs-on: ubuntu-latest
-      steps:
-        - name: Doing Test
-          run: |
-            echo "Testing Feature..."
-            echo "Test Succesfull"
-        - name: Check out repository code
-          uses: actions/checkout@v2
-        - name: pull-request
-          uses: repo-sync/pull-request@v2
-          with:
-            destination_branch: "develop"
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            pr_label: "feature, automated pr"
-            pr_title: "Pull request ${{ github.ref }} into develop"
-        
-  if ${{ github.ref}} == 'refs/head/develop'
         runs-on: ubuntu-latest
         steps:
+          - name: Doing Test
+            run: |
+              echo "Testing Feature..."
+              echo "Test Succesfull"
+
           - name: Check out repository code
             uses: actions/checkout@v2
+
+          if ${{ github.ref}} == 'refs/head/feature/*'
           - name: pull-request
             uses: repo-sync/pull-request@v2
             with:
-              destination_branch: "gh-pages"
+              destination_branch: "develop"
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              pr_label: "feature, automated pr"
+              pr_title: "Pull request ${{ github.ref }} into develop"
+
+          if ${{ github.ref}} == 'refs/head/develop'
+          - name: pull-request
+            uses: repo-sync/pull-request@v2
+            with:
+              destination_branch: "develop"
               github_token: ${{ secrets.GITHUB_TOKEN }}
               pr_label: "feature, automated pr"
               pr_title: "Pull request ${{ github.ref }} into develop"

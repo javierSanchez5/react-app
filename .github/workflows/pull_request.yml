@@ -16,4 +16,4 @@ jobs:
           destination_branch: "develop"
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_label: "feature, automated pr"
-          pr_title: "${{ github.ref }}"
+          pr_title: "Pull request ${{ github.ref }} into develop"

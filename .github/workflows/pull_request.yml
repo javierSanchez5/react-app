@@ -13,10 +13,10 @@ jobs:
     steps:
     - name: setting branch for PR
       run: |
-        if ${{ github.ref == 'refs/head/develop' }} ; then
-          ${{ env.BRANCH_PR }} = 'main'
+        if [ ${{ github.ref }} != /ref/heads/develop ] ; then
+          ${{ env.BRANCH_PR }}='develop'
         else
-          {{ env.BRANCH_PR}} = 'develop'
+          {{ env.BRANCH_PR}}='develop'
         fi
     - name: Doing Test
       run: |

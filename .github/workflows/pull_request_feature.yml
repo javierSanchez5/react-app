@@ -1,4 +1,4 @@
-name: Create production promotion pull request
+name: Pull request to develop
 on:
   push:
     branches:

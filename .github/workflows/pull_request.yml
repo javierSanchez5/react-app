@@ -3,38 +3,38 @@ on:
   push:
     branches:
       - 'feature/*'
-      - 'develop'
+      #- 'develop'
 
 jobs:
   create-pull-request:
-        runs-on: ubuntu-latest
-        steps:
-          if: ${{ github.ref == 'refs/heads/feature/*' }} 
-        - name: Doing Test
-          run: |
-            echo "Testing in ${{ github.ref }}"
-            echo "Test Succesfull"
-        - name: Check out repository code
-          uses: actions/checkout@v2
-        - name: pull-request
-          uses: repo-sync/pull-request@v2
-          with:
-            destination_branch: "develop"
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            pr_label: "feature, automated pr"
-            pr_title: "Pull request ${{ github.ref }} into develop"
+      runs-on: ubuntu-latest
+      steps:
+        if: ${{ github.ref == 'refs/heads/feature/*' }} 
+      - name: Doing Test
+        run: |
+          echo "Testing in ${{ github.ref }}"
+          echo "Test Succesfull"
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "develop"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_label: "feature, automated pr"
+          pr_title: "Pull request ${{ github.ref }} into develop"
 
-          if: ${{ github.ref == 'refs/heads/develop' }} 
-        - name: Doing Test
-          run: |
+        if: ${{ github.ref == 'refs/heads/develop' }} 
+      - name: Doing Test
+        run: |
               echo "Testing in ${{ github.ref }}"
               echo "Test Succesfull"
-        - name: Check out repository code
-          uses: actions/checkout@v2
-        - name: pull-request
-          uses: repo-sync/pull-request@v2
-          with:
-            destination_branch: "main"
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            pr_label: "feature, automated pr"
-            pr_title: "Pull request ${{ github.ref }} into develop"
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "main"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_label: "feature, automated pr"
+          pr_title: "Pull request ${{ github.ref }} into develop"

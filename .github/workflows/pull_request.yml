@@ -2,18 +2,28 @@ name: Create production promotion pull request
 on:
   push:
     branches:
-      - main
+      #- gh-pages
+      - 'feature/*'
+      - 'develop'
 
 jobs:
   create-pull-request:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - name: pull-request
-        uses: repo-sync/pull-request@v2
-        with:
-          destination_branch: "develop"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_label: "feature, automated pr"
-          pr_title: "Pull request ${{ github.ref }} into develop"
+        runs-on: ubuntu-latest
+        steps:
+          - name: Doing Test
+            run: |
+              echo "Testing Feature..."
+              echo "Test Succesfull"
+              echo " ${{ github.ref }} "
+
+          - name: Check out repository code
+            uses: actions/checkout@v2
+
+          
+          - name: pull-request
+            uses: repo-sync/pull-request@v2
+            with:
+              destination_branch: "develop"
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              pr_label: "feature, automated pr"
+              pr_title: "Pull request ${{ github.ref }} into develop"

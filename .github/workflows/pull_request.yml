@@ -8,9 +8,9 @@ on:
 jobs:
   create-pull-request:
     runs-on: ubuntu-latest
+    steps:
     env:
       BRANCH_PR: ''
-    steps:
     - name: setting branch for PR
       run: |
         if [ ${{ github.ref }} != /ref/heads/develop ]; then

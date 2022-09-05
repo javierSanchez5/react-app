@@ -4,25 +4,24 @@ on:
     branches:
       #- gh-pages
       - 'feature/*'
-      - 'develop'
+      #- 'develop'
 
 jobs:
   create-pull-request:
         runs-on: ubuntu-latest
-        #if: ${{ github.ref == 'refs/heads/feature/*' }} 
         steps:
           - name: Doing Test
             run: |
               echo "Testing ${{ github.ref }}"
               echo "Test Succesfull"
-          #- name: Check out repository code
-          #  uses: actions/checkout@v2
-          #- name: pull-request
-          #  uses: repo-sync/pull-request@v2
-          #  with:
-          #    destination_branch: "develop"
-          #    github_token: ${{ secrets.GITHUB_TOKEN }}
-          #    pr_label: "feature, automated pr"
-          #    pr_title: "Pull request ${{ github.ref }} into develop"
+          - name: Check out repository code
+            uses: actions/checkout@v2
+          - name: pull-request
+            uses: repo-sync/pull-request@v2
+            with:
+              destination_branch: "develop"
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              pr_label: "feature, automated pr"
+              pr_title: "Pull request ${{ github.ref }} into develop"
 
         

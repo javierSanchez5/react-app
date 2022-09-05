@@ -35,6 +35,8 @@ gh-pages is used as a release branch
 ### `Feature/<name>`
 
 ## tags format
+v1.1 -> first feature
+v1.2-> second feature
 
 ## Workflows
 

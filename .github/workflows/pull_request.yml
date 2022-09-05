@@ -1,24 +1,20 @@
-name: create PR
-
+name: Create production promotion pull request
 on:
   push:
     branches:
-     - 'feautures/*'
-  
-  jobs: 
-    build:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - uses: rlespinasse/git-commit-data-action@v1.x
-        - uses: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
-        - uses: peter-evans/create-pull-request@v3
+      - 'feature/first'
+jobs:
+  productionPromotion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
         with:
-          branch: 'develop'
-          base: features
-          committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">"
-          author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">"
-          body:
-            this is to show automatic PR
-          token: ${{ secrets.GITHUB_TOKEN}}
-      
+          ref: develop
+      - name: Reset promotion branch
+        run: |
+          git fetch origin feature/first:feature/first*
+          git reset --hard feature/first
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: develop

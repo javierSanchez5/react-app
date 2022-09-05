@@ -11,6 +11,7 @@ function App() {
           <p>First</p>
           <p>First</p>
           <p>First Feature</p>
+          <p>Second Feature</p>
         </p>
         <a
           className="App-link"

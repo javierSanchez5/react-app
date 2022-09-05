@@ -9,8 +9,6 @@ jobs:
   create-pull-request:
     runs-on: ubuntu-latest
     steps:
-    - name: condition
-      if: github.ref == 'refs/heads/feature*'
     - name: Doing Test
       run: |
         echo "Testing ${{ github.ref }}"

@@ -26,17 +26,15 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `Main`
 
-When all the changes are ready in DEVELOP a pull request will be trigger to merge into MAIN in order to be released in GH-PAGES.
-
 ### `gh-pages`
 
 gh-pages is used as a release branch
 
 ### `Developer`
 
-### `Feature`
+### `Feature/<name>`
 
-For any new feature Create a new feature branch with the next format " feature/<new_feature>
+## tags format
 
 ## Workflows
 

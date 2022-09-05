@@ -9,7 +9,7 @@ jobs:
   create-pull-request:
         runs-on: ubuntu-latest
         steps:
-        if: ${{ github.ref == 'refs/heads/feature/*' }} 
+          if: ${{ github.ref == 'refs/heads/feature/*' }} 
         - name: Doing Test
           run: |
             echo "Testing in ${{ github.ref }}"
@@ -24,7 +24,7 @@ jobs:
             pr_label: "feature, automated pr"
             pr_title: "Pull request ${{ github.ref }} into develop"
 
-        if: ${{ github.ref == 'refs/heads/develop' }} 
+          if: ${{ github.ref == 'refs/heads/develop' }} 
         - name: Doing Test
           run: |
               echo "Testing in ${{ github.ref }}"

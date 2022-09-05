@@ -26,6 +26,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `Main`
 
+When all the changes are ready in DEVELOP a pull request will be trigger to merge into MAIN in order to be released in GH-PAGES.
+
 ### `gh-pages`
 
 gh-pages is used as a release branch
@@ -57,6 +59,10 @@ For any push or pull request in the branch DEVELOP will run a echo to show a mes
 Performs the same functionality as " pull_request_dev ". The only difference is that it will only trigger when a push event happens in any of the future branchs.
 
 Pull request to the DEVELOP branch.
+
+## Flow of the project
+
+when a new feature is in development it should be developed in a new feature branch with the format. Then push all the changes in the repository. A workflow will be trigger to create a pull request. If the pull request is accepted and the changes is merged in DEVELOP another workflow will be trigger to create a pull request to add the changes in MAIN to release the new feautre 
 
 
 

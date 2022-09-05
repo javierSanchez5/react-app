@@ -1,4 +1,4 @@
-# React application uaing giflow and automate task with Github actios
+# React application using giflow and automate task with Github actions
 
 ## Available Scripts
 
